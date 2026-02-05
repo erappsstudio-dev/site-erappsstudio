@@ -1,0 +1,460 @@
+/* Animations */
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale */
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes scaleDown {
+  from {
+    opacity: 0;
+    transform: scale(1.1);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Bounce */
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Slide */
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Rotate */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Gradient Animation */
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Utility Classes */
+.animate-fadeIn {
+  animation: fadeIn var(--transition-base) ease-out;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp var(--transition-base) ease-out;
+}
+
+.animate-fadeInDown {
+  animation: fadeInDown var(--transition-base) ease-out;
+}
+
+.animate-fadeInLeft {
+  animation: fadeInLeft var(--transition-base) ease-out;
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight var(--transition-base) ease-out;
+}
+
+.animate-scaleUp {
+  animation: scaleUp var(--transition-base) ease-out;
+}
+
+.animate-bounce {
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.animate-rotate {
+  animation: rotate 2s linear infinite;
+}
+
+/* Transition utilities */
+.transition-all {
+  transition: all var(--transition-base);
+}
+
+.transition-colors {
+  transition: color var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.transition-transform {
+  transition: transform var(--transition-base);
+}
+
+.transition-opacity {
+  transition: opacity var(--transition-base);
+}
+
+/* Hover effects */
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.5);
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Stagger animations */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-item.active {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.stagger-item:nth-child(1) { animation-delay: 0.1s; }
+.stagger-item:nth-child(2) { animation-delay: 0.2s; }
+.stagger-item:nth-child(3) { animation-delay: 0.3s; }
+.stagger-item:nth-child(4) { animation-delay: 0.4s; }
+.stagger-item:nth-child(5) { animation-delay: 0.5s; }
+.stagger-item:nth-child(6) { animation-delay: 0.6s; }
+
+/* Loading spinner */
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--color-gray-300);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: rotate 1s linear infinite;
+}
+
+/* Gradient background animation */
+.gradient-animated {
+  background: linear-gradient(270deg, var(--color-primary), var(--color-secondary), var(--color-accent));
+  background-size: 600% 600%;
+  animation: gradientShift 10s ease infinite;
+}
+
+/* ============================================
+   GSAP Animation Classes
+   ============================================ */
+
+/* Fade In Up - Initial state */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(40px);
+  will-change: transform, opacity;
+}
+
+/* Visible state (for CSS fallback) */
+.fade-in-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* Fallback for no-JS */
+.no-js .fade-in-up {
+  opacity: 1;
+  transform: none;
+}
+
+.hero-description.fade-in-up {
+  opacity: 1;
+  transform: none;
+  animation: none !important;
+}
+
+.no-gsap .hero-description,
+.mobile-animations .hero-description {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    transition: none;
+  }
+  
+  .fade-in-up.is-visible {
+    transition: none;
+  }
+  
+  [data-speed] {
+    transform: none !important;
+  }
+}
+
+/* Parallax layers */
+[data-speed] {
+  will-change: transform;
+}
+
+/* Hero Parallax Background */
+.hero-parallax-bg {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Counter animation */
+.counter {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+}
+
+/* Stagger Grid Items */
+.stagger-grid > * {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.stagger-grid.animated > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Card hover effects (GSAP controlled) */
+.card-animated {
+  will-change: transform;
+  transition: box-shadow 0.3s ease;
+}
+
+.card-animated:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Split Text Animation */
+.split-text .char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+.split-text.animated .char {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Magnetic Wrapper */
+.magnetic-wrapper {
+  display: inline-block;
+  will-change: transform;
+}
+
+/* Scale on Scroll */
+.scale-on-scroll {
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Line Draw Animation */
+.line-draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+.line-draw.animated {
+  stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.5s ease-out;
+}
+
+/* Reveal Mask */
+.reveal-mask {
+  overflow: hidden;
+}
+
+.reveal-mask-inner {
+  transform: translateY(100%);
+  will-change: transform;
+}
+
+.reveal-mask.animated .reveal-mask-inner {
+  transform: translateY(0);
+}
+
+/* Floating Animation */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* GPU Acceleration hint */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Performance: disable animations during resize */
+.resize-animation-stopper * {
+  animation: none !important;
+  transition: none !important;
+}

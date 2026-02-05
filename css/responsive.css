@@ -1,0 +1,869 @@
+/* Responsive Design */
+
+/* Tablet and below (< 1024px) */
+@media (max-width: 1023px) {
+  :root {
+    --font-size-7xl: 3.5rem;   /* 56px */
+    --font-size-6xl: 3rem;     /* 48px */
+    --font-size-5xl: 2.5rem;   /* 40px */
+  }
+
+  .hero-title {
+    font-size: var(--font-size-6xl);
+  }
+
+  .section-title {
+    font-size: var(--font-size-4xl);
+  }
+
+  .navbar-menu {
+    gap: var(--spacing-lg);
+  }
+
+  .grid-cols-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile and below (< 768px) */
+@media (max-width: 767px) {
+  :root {
+    --font-size-7xl: 2.5rem;   /* 40px */
+    --font-size-6xl: 2rem;     /* 32px */
+    --font-size-5xl: 1.875rem; /* 30px */
+    --spacing-5xl: 4rem;       /* 64px */
+    --spacing-4xl: 3rem;       /* 48px */
+  }
+
+  /* Navigation */
+  .navbar-toggle {
+    display: flex;
+  }
+
+  .navbar-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    padding: var(--spacing-xl);
+    background: var(--color-white);
+    box-shadow: var(--shadow-xl);
+    transform: translateX(100%);
+    transition: transform var(--transition-base);
+    overflow-y: auto;
+  }
+
+  .navbar-menu.active {
+    transform: translateX(0);
+  }
+
+  .navbar-link {
+    width: 100%;
+    padding: var(--spacing-md) 0;
+    font-size: var(--font-size-lg);
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  .navbar-link::after {
+    display: none;
+  }
+
+  .navbar-cta {
+    width: 100%;
+    margin-top: var(--spacing-lg);
+  }
+
+  .navbar-cta .btn {
+    width: 100%;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100svh;
+    padding-top: 100px;
+  }
+
+  .hero-title {
+    font-size: var(--font-size-5xl);
+  }
+
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+  }
+
+  /* Grid */
+  .grid-cols-2,
+  .grid-cols-3,
+  .grid-cols-4 {
+    grid-template-columns: 1fr;
+  }
+
+  /* Section */
+  .section {
+    padding: var(--spacing-4xl) 0;
+  }
+
+  .section-title {
+    font-size: var(--font-size-3xl);
+  }
+
+  .section-subtitle {
+    font-size: var(--font-size-base);
+  }
+
+  /* Card */
+  .card {
+    padding: var(--spacing-xl);
+  }
+
+  /* Footer */
+  .footer {
+    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .footer-social {
+    justify-content: center;
+  }
+}
+
+/* Small mobile (< 480px) */
+@media (max-width: 479px) {
+  :root {
+    --container-padding: var(--spacing-lg);
+    --font-size-7xl: 2rem;     /* 32px */
+    --font-size-6xl: 1.75rem;  /* 28px */
+    --font-size-5xl: 1.5rem;   /* 24px */
+  }
+
+  .hero-title {
+    font-size: var(--font-size-4xl);
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
+  }
+
+  .btn {
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+  }
+
+  .btn-lg {
+    padding: var(--spacing-md) var(--spacing-xl);
+    font-size: var(--font-size-base);
+  }
+
+  .card {
+    padding: var(--spacing-lg);
+  }
+}
+
+/* Large desktop (> 1536px) */
+@media (min-width: 1536px) {
+  :root {
+    --container-max-width: 1536px;
+  }
+}
+
+/* Landscape mobile */
+@media (max-height: 600px) and (orientation: landscape) {
+  .hero {
+    min-height: auto;
+    padding: var(--spacing-5xl) 0;
+  }
+
+  .section {
+    padding: var(--spacing-3xl) 0;
+  }
+}
+
+/* Utilities for hiding/showing on different screens */
+.hidden-mobile {
+  display: block;
+}
+
+.hidden-desktop {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none;
+  }
+
+  .hidden-desktop {
+    display: block;
+  }
+}
+
+/* ============================================
+   MOBILE TOUCH TARGETS (Apple HIG - 44x44px minimum)
+   ============================================ */
+@media (max-width: 768px) {
+  /* Ensure minimum touch target size */
+  button,
+  a,
+  input[type="submit"],
+  input[type="button"],
+  .btn,
+  .nav-menu a,
+  .mobile-menu-toggle {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Form inputs touch friendly */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  input[type="number"],
+  textarea,
+  select {
+    min-height: 44px;
+    padding: 12px 16px;
+    font-size: 16px; /* Prevents iOS zoom on focus */
+  }
+  
+  /* Links in content areas */
+  .nav-menu a {
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Icon buttons */
+  .btn-icon,
+  [aria-label]:not(section):not(nav):not(main) {
+    min-height: 44px;
+    min-width: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Social links */
+  .social-link,
+  .footer-social a {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 10px;
+  }
+}
+
+/* Print styles */
+@media print {
+  .navbar,
+  .footer,
+  .btn {
+    display: none;
+  }
+
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+
+  .section {
+    page-break-inside: avoid;
+  }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dark mode support (optional) */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode styles here if needed */
+}
+
+/* ========================================
+   ABOUT SECTION - RESPONSIVE
+   ======================================== */
+/* Tablet and below */
+@media (max-width: 1023px) {
+  .about-section {
+    padding: 80px 0;
+  }
+
+  .social-proof {
+    gap: var(--spacing-lg);
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+  }
+}
+
+/* Mobile and below */
+@media (max-width: 767px) {
+  .about-section {
+    padding: 60px 0;
+  }
+
+  .about-header {
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .about-header h2 {
+    font-size: var(--text-2xl);
+  }
+
+  .about-header .lead {
+    font-size: var(--text-base);
+  }
+
+  .social-proof {
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .social-proof-card {
+    padding: var(--spacing-lg);
+    min-width: 120px;
+  }
+
+  .social-proof-icon {
+    font-size: 1.5rem;
+  }
+
+  .social-proof-number {
+    font-size: var(--text-xl);
+  }
+
+  .social-proof-label {
+    font-size: var(--text-xs);
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .value-card {
+    padding: var(--spacing-xl);
+  }
+
+  .value-icon {
+    font-size: 2.5rem;
+  }
+
+  .value-title {
+    font-size: var(--text-base);
+  }
+
+  .value-description {
+    font-size: var(--text-sm);
+  }
+}
+
+/* ========================================
+   PRODUCTS SECTION - RESPONSIVE
+   ======================================== */
+/* Tablet and below */
+@media (max-width: 1023px) {
+  .produtos-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .produto-card:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 1;
+  }
+
+  .produto-card:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  .produto-card:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  .produto-card img {
+    height: 160px;
+  }
+
+  .produto-actions {
+    flex-direction: column;
+  }
+}
+
+/* Mobile and below */
+@media (max-width: 767px) {
+  .produtos-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .produto-card:nth-child(1) {
+    grid-column: span 1;
+    grid-row: span 1;
+  }
+
+  .produto-card:nth-child(2) {
+    grid-column: span 1;
+  }
+
+  .produto-card:nth-child(3) {
+    grid-column: span 1;
+  }
+
+  .produto-card {
+    padding: var(--spacing-lg);
+  }
+
+  .produto-card img {
+    height: 140px;
+  }
+
+  .produto-card h3 {
+    font-size: var(--text-lg);
+  }
+
+  .produto-tagline {
+    font-size: var(--text-xs);
+  }
+
+  .produto-stats li {
+    font-size: var(--text-xs);
+  }
+
+  .produto-tags span {
+    font-size: 0.625rem;
+  }
+
+  .produto-actions .btn-primary,
+  .produto-actions .btn-link {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--text-sm);
+  }
+
+  .produto-footer {
+    font-size: 0.625rem;
+  }
+
+  /* Coming Soon Badge Mobile */
+  .produto-card.coming-soon::before {
+    top: 15px;
+    right: -35px;
+    padding: 6px 40px;
+    font-size: 0.625rem;
+  }
+}
+
+/* ========================================
+   CONTACT SECTION - RESPONSIVE
+   ======================================== */
+/* Tablet and below */
+@media (max-width: 1023px) {
+  .contato-layout {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .contato-calendly {
+    order: -1; /* Calendly first on mobile for conversion */
+  }
+
+  .channel-card {
+    padding: var(--spacing-sm);
+  }
+
+  .channel-card .icon {
+    font-size: 1.4rem;
+  }
+
+  .channel-card h4 {
+    font-size: var(--text-base);
+  }
+
+  .calendly-inline-widget {
+    height: 550px;
+  }
+}
+
+/* Mobile and below */
+@media (max-width: 767px) {
+  .contato-layout {
+    gap: var(--spacing-xl);
+    margin-top: var(--spacing-2xl);
+  }
+
+  .channels-title,
+  .calendly-title {
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contato-channels {
+    gap: var(--spacing-md);
+  }
+
+  .channel-card {
+    padding: var(--spacing-xs);
+    border-radius: 12px;
+  }
+
+  .channel-card .icon {
+    font-size: 1.25rem;
+    margin-bottom: 0;
+  }
+
+  .channel-card h4 {
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-xs);
+  }
+
+  .channel-card p {
+    font-size: var(--text-xs);
+  }
+
+  .calendly-wrapper {
+    border-radius: 16px;
+  }
+
+  .calendly-inline-widget {
+    height: 500px;
+    min-width: 280px;
+  }
+
+  .placeholder-icon {
+    font-size: 2.5rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .placeholder-title {
+    font-size: var(--text-base);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .placeholder-text {
+    font-size: var(--text-xs);
+  }
+}
+
+/* Large Mobile - Contact Channels in 2x2 Grid */
+@media (max-width: 600px) and (min-width: 480px) {
+  .contato-channels {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-md);
+  }
+
+  .channels-title {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+}
+
+/* ========================================
+   NEWSLETTER SECTION - RESPONSIVE
+   ======================================== */
+/* Tablet and below */
+@media (max-width: 1023px) {
+  .newsletter-cta {
+    padding: var(--spacing-3xl) 0;
+  }
+
+  .newsletter-content h3 {
+    font-size: var(--text-xl);
+  }
+
+  .newsletter-content p {
+    font-size: var(--text-base);
+  }
+
+  .newsletter-form {
+    gap: var(--spacing-sm);
+  }
+
+  .newsletter-form input[type="email"] {
+    min-width: 250px;
+  }
+
+  .newsletter-form .btn-primary {
+    min-width: 140px;
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+}
+
+/* Mobile and below */
+@media (max-width: 767px) {
+  .newsletter-cta {
+    padding: var(--spacing-2xl) 0;
+  }
+
+  .newsletter-content {
+    padding: 0 var(--spacing-md);
+  }
+
+  .newsletter-content h3 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .newsletter-content p {
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md);
+  }
+
+  .newsletter-form input[type="email"] {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+
+  .newsletter-form .btn-primary {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .disclaimer {
+    font-size: var(--text-xs);
+    padding: 0 var(--spacing-md);
+  }
+
+  .form-message {
+    margin-left: var(--spacing-md);
+    margin-right: var(--spacing-md);
+  }
+}
+
+/* ========================================
+   FOOTER - RESPONSIVE
+   ======================================== */
+/* Tablet and below */
+@media (max-width: 1023px) {
+  .site-footer {
+    padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    margin-top: var(--spacing-3xl);
+  }
+
+  .footer-grid {
+    flex-direction: column;
+    gap: var(--spacing-2xl);
+  }
+
+  .footer-col:first-child {
+    grid-column: 1 / -1;
+    text-align: left;
+    align-items: flex-start;
+  }
+
+  .footer-col:first-child .social-links {
+    justify-content: flex-start;
+  }
+}
+
+/* Mobile and below */
+@media (max-width: 767px) {
+  .site-footer {
+    padding: var(--spacing-2xl) 0 var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .footer-col h4 {
+    font-size: var(--text-lg);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .footer-col h5 {
+    font-size: var(--text-base);
+    margin-bottom: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-sm) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .footer-col p {
+    font-size: var(--text-sm);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .footer-col ul li a {
+    font-size: var(--text-xs);
+    padding: var(--spacing-xs) 0;
+  }
+
+  .social-links {
+    margin-top: var(--spacing-md);
+    justify-content: flex-start;
+  }
+
+  .social-links a {
+    font-size: 1.25rem;
+  }
+
+  .footer-bottom {
+    padding-top: var(--spacing-md);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    font-size: var(--text-xs);
+  }
+}
+
+/* ============================================
+   PERFORMANCE: Mobile-only CSS animations
+   ============================================ */
+.mobile-animations .fade-in-up {
+  opacity: 1;
+  transform: none;
+  transition: none;
+}
+
+.mobile-animations .card-animated {
+  transform: none;
+}
+
+/* Simplified animations for mobile */
+.mobile-animations .fade-in-up {
+  animation: mobileReveal 0.5s ease-out forwards;
+}
+
+@keyframes mobileReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============================================
+   PERFORMANCE: Slow connection optimizations
+   ============================================ */
+.slow-connection video,
+.slow-connection .hero-video,
+.slow-connection iframe:not([data-essential]) {
+  display: none !important;
+}
+
+/* Keep Calendly visible even on slow connection */
+.slow-connection .calendly-inline-widget iframe {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+.slow-connection .hero-mesh {
+  display: block !important;
+  opacity: 1 !important;
+}
+
+/* Hide decorative images on slow connections */
+.slow-connection img[data-decorative="true"] {
+  display: none;
+}
+
+/* Reduce image quality indicator */
+.slow-connection .card-image img {
+  filter: grayscale(20%);
+}
+
+/* ============================================
+   PERFORMANCE: Reduce motion preference
+   ============================================ */
+.reduce-motion *,
+.reduce-motion *::before,
+.reduce-motion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* ============================================
+   PERFORMANCE: Image loading states
+   ============================================ */
+img {
+  background-color: var(--bg-tertiary, #1f1f2e);
+  transition: opacity 0.3s ease;
+}
+
+img.loading {
+  opacity: 0.5;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+img.img-error {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+/* Placeholder shimmer effect */
+img[loading="lazy"]:not(.loaded) {
+  background: linear-gradient(
+    90deg,
+    var(--bg-tertiary, #1f1f2e) 0%,
+    var(--bg-secondary, #14141f) 50%,
+    var(--bg-tertiary, #1f1f2e) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Disable shimmer for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  img[loading="lazy"]:not(.loaded) {
+    animation: none;
+    background: var(--bg-tertiary, #1f1f2e);
+  }
+}

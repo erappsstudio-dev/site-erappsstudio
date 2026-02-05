@@ -1,0 +1,9 @@
+# OS metadata
+.DS_Store
+**/.DS_Store
+
+# Logs
+*.log
+
+# Codex/agent workspace
+.agent/

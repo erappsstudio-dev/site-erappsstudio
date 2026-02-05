@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  
+  <!-- Primary Meta Tags -->
+  <title>ER Apps Studio | Apps e Produtos Digitais que Performam</title>
+  <meta name="description" content="Estúdio independente da Região Amazônica criando apps educativos, playbooks de negócios e soluções WhatsApp-first para PMEs brasileiras.">
+  <meta name="keywords" content="desenvolvimento app, estúdio digital, MVP, São Paulo, educação infantil, marketing digital">
+  <meta name="author" content="ER Apps Studio">
+  <link rel="canonical" href="https://erappsstudio.com/">
+  
+  <!-- Open Graph (Facebook/LinkedIn) -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://erappsstudio.com/">
+  <meta property="og:title" content="ER Apps Studio | Apps que Resolvem. Negócios que Crescem.">
+  <meta property="og:description" content="Criamos produtos digitais para educação, marketing e negócios. Do MVP ao scale-up em 30-45 dias.">
+  <meta property="og:image" content="https://erappsstudio.com/og-image.jpg">
+  <meta property="og:locale" content="pt_BR">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://erappsstudio.com/">
+  <meta name="twitter:title" content="ER Apps Studio | Apps que Resolvem">
+  <meta name="twitter:description" content="Estúdio independente criando apps educativos, playbooks e soluções WhatsApp-first.">
+  <meta name="twitter:image" content="https://erappsstudio.com/twitter-image.jpg">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" href="/favicon.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  
+  <!-- ============================================
+       PERFORMANCE: Critical Resource Hints
+       ============================================ -->
+  <!-- DNS Prefetch for external domains -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="https://calendly.com">
+  
+  <!-- Preconnect for critical external resources -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  
+  <!-- Preload Hero Background (sequence first frame) -->
+  <link rel="preload" href="/images/hero/Voc__um_202602051458_w3abi_000.png" as="image" type="image/png">
+  
+  <!-- Preload Critical CSS -->
+  <link rel="preload" href="/css/reset.css" as="style">
+  <link rel="preload" href="/css/variables.css" as="style">
+  <link rel="preload" href="/css/hero-3d.css" as="style">
+  
+  <!-- ============================================
+       CRITICAL CSS (Above-the-fold inline)
+       ============================================ -->
+  <style>
+    /* Critical CSS for First Paint */
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#0a0a14;color:#e4e4e7;line-height:1.6;overflow-x:hidden}
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative}
+    .hero-content{text-align:center;z-index:1;opacity:0;animation:heroFadeIn 1s ease-out 0.3s forwards}
+    .hero h1{font-size:clamp(2.5rem,6vw,4rem);font-weight:700;color:#fff;margin-bottom:1rem}
+    .hero-subtitle{font-size:clamp(1.5rem,3vw,2rem);color:#00d9ff;margin-bottom:1.5rem}
+    @keyframes heroFadeIn{to{opacity:1}}
+    .nav-sticky{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(10,10,20,0.8);backdrop-filter:blur(12px)}
+    .container{max-width:1200px;margin:0 auto;padding:0 1.5rem}
+  </style>
+  
+  <!-- Google Fonts - Optimized with display=swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+  
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#0a0a14">
+  
+  <!-- Stylesheets (non-critical, loaded normally) -->
+  <link rel="stylesheet" href="/css/reset.css">
+  <link rel="stylesheet" href="/css/variables.css">
+  <link rel="stylesheet" href="/css/bento-grid.css">
+  <link rel="stylesheet" href="/css/hero-3d.css">
+  <link rel="stylesheet" href="/css/sticky-nav.css">
+  <link rel="stylesheet" href="/css/micro-interactions.css">
+  <link rel="stylesheet" href="/css/dark-mode.css">
+  <link rel="stylesheet" href="/css/components.css">
+  <link rel="stylesheet" href="/css/layout.css">
+  <link rel="stylesheet" href="/css/animations.css">
+  <link rel="stylesheet" href="/css/responsive.css">
+  
+  <!-- GSAP + ScrollTrigger -->
+  <script>
+    if ('ontouchstart' in window) {
+      document.documentElement.classList.add('mobile-animations');
+    }
+  </script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  
+  <!-- Google Analytics 4 (GA4) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+  
+  <!-- Structured Data (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "ER Apps Studio",
+    "url": "https://erappsstudio.com",
+    "logo": "https://erappsstudio.com/logo.svg",
+    "description": "Estúdio independente criando apps e produtos digitais",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "São Paulo",
+      "addressCountry": "BR"
+    },
+    "sameAs": [
+      "https://linkedin.com/company/erappsstudio",
+      "https://instagram.com/erappsstudio"
+    ]
+  }
+  </script>
+  
+  <!-- Hotjar Tracking Code - Configure before enabling
+  <script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:YOUR_HOTJAR_ID,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+  -->
+  
+</head>
+<body>
+  
+  <!-- Skip to Content Link (Accessibility) -->
+  <a href="#home" class="skip-link">Pular para o conteúdo principal</a>
+  
+  <!-- Navigation -->
+  <nav class="nav-sticky">
+    <!-- Progress Bar -->
+    <div class="nav-progress"></div>
+    
+    <div class="container nav-content">
+      <a href="#hero" class="logo">
+        <img src="/images/logo.svg" alt="ER Apps" width="120">
+      </a>
+      
+      <ul class="nav-menu">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#produtos">Produtos</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      
+      <a href="#contato" class="btn-nav-cta">Agendar Demo →</a>
+      
+      <button class="mobile-menu-toggle" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-sequence" 
+         data-seq-base="/images/hero/Voc__um_202602051458_w3abi_" 
+         data-seq-count="82" 
+         data-seq-pad="3" 
+         data-seq-ext="png"
+         data-seq-duration="6"
+         style="background-image: url('/images/hero/Voc__um_202602051458_w3abi_000.png');">
+      <canvas id="hero-sequence-canvas" aria-hidden="true"></canvas>
+    </div>
+    
+    <!-- Hero Content -->
+    <div class="hero-content compact-hero">
+      <span class="hero-badge fade-in-up">ER Apps Studio</span>
+      <div class="hero-title-group fade-in-up">
+        <h1 class="glitch-text hero-title">Apps que Resolvem.</h1>
+        <span class="hero-title-gradient">Negócios que Crescem.</span>
+      </div>
+      <p class="hero-description">
+        Estúdio independente transformando ideias em produtos digitais que educam, simplificam e vendem.
+      </p>
+      <div class="cta-duo fade-in-up">
+        <a href="#produtos" class="btn btn-primary btn-magnetic">
+          <span>Explorar Portfólio</span> <span class="arrow">↓</span>
+        </a>
+        <a href="#contato" class="btn btn-secondary btn-magnetic">
+          <span>Demo 15min</span> <span class="arrow">→</span>
+        </a>
+      </div>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </div>
+    
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+      </svg>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="sobre" class="section about-section">
+    <div class="container">
+      <!-- Headline -->
+      <div class="about-header">
+        <h2>De Ideias a Apps que Performam</h2>
+        <p class="lead">
+          Somos a <strong>ER Apps Studio</strong>: equipe independente da Região Amazônica 
+          especializada em criar soluções digitais para quem não tem tempo a perder 
+          com complexidade.
+        </p>
+      </div>
+
+      <!-- Social Proof Cards -->
+      <div class="social-proof">
+        <div class="social-proof-card">
+          <div class="social-proof-icon">🚀</div>
+          <div class="social-proof-number">3</div>
+          <div class="social-proof-label">Produtos<br>Lançados</div>
+        </div>
+        <div class="social-proof-card">
+          <div class="social-proof-icon">💯</div>
+          <div class="social-proof-number">3</div>
+          <div class="social-proof-label">Segmentos<br>Dominados</div>
+        </div>
+        <div class="social-proof-card">
+          <div class="social-proof-icon">👥</div>
+          <div class="social-proof-number">+5K</div>
+          <div class="social-proof-label">Usuários</div>
+        </div>
+      </div>
+
+      <!-- Tripé de Valores -->
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">⚡</div>
+          <h3 class="value-title">Velocidade sem sacrificar qualidade</h3>
+          <p class="value-description">
+            Entregas ágeis com código limpo e design premium. Nossa experiência garante produtos prontos para escalar.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🎯</div>
+          <h3 class="value-title">Independência que gera foco</h3>
+          <p class="value-description">
+            Sem burocracias corporativas. Decisões rápidas, comunicação direta e total dedicação aos seus objetivos.
+          </p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🇧🇷</div>
+          <h3 class="value-title">Brasil no DNA</h3>
+          <p class="value-description">
+            Entendemos o mercado brasileiro. Falamos a mesma língua e conhecemos os desafios únicos do nosso ecossistema.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="produtos" class="section">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Nossas Soluções em Campo</h2>
+      <p class="section-subtitle fade-in-up">
+        Do Brasil para o mundo: tecnologias validadas por profissionais em mais de 170 países.
+      </p>
+      
+      <!-- Asymmetric Bento Grid -->
+      <div class="produtos-grid stagger-grid">
+        <!-- Capitão Banana - Grande (2 cols x 2 rows) -->
+        <div class="produto-card glass-card card-animated fade-in-up">
+          <div class="produto-badge">Lançamento Global</div>
+          <picture>
+            <source 
+              srcset="/images/capitao-banana.webp" 
+              type="image/webp"
+            >
+            <img 
+              src="/images/capitao-banana.png" 
+              alt="Capitão Banana App - Educação alimentar gamificada" 
+              loading="lazy"
+              width="400"
+              height="300"
+              decoding="async"
+            >
+          </picture>
+          <h3>🍌 Capitão Banana</h3>
+          <p class="produto-tagline">Educação alimentar infantil impulsionada pela gamificação. Em estágio final de lançamento, a solução conta com excelente aceitação em testes de mercado globais e validação técnica por educadores.</p>
+          
+          <ul class="produto-stats">
+            <li>✓ React Native</li>
+            <li>✓ Gamificação</li>
+            <li>✓ Android</li>
+          </ul>
+          
+          <div class="produto-tags">
+            <span>Google Play Store</span> 
+            <span>React Native</span>
+            <span>Gamificação</span>
+          </div>
+          
+          <div class="produto-actions">
+            <a href="#contato" class="btn btn-primary btn-magnetic">Solicitar Demo</a>
+            <a href="#portfolio" class="btn-link">Ver Case</a>
+          </div>
+          
+          <div class="produto-footer">
+            <a href="#contato">Suporte</a> · <a href="#privacy">Privacidade</a>
+          </div>
+        </div>
+
+        <!-- GTM Playbook - Médio (2 cols x 1 row) -->
+        <div class="produto-card glass-card card-animated fade-in-up">
+          <div class="produto-badge">Beta Aberto</div>
+          <picture>
+            <source srcset="/images/playbook-thumb.webp" type="image/webp">
+            <img 
+              src="/images/playbook-thumb.png" 
+              alt="Go-to-Market Playbook - Framework de vendas B2B" 
+              loading="lazy"
+              width="400"
+              height="300"
+              decoding="async"
+            >
+          </picture>
+          <h3>📊 Go-to-Market Playbook</h3>
+          <p class="produto-tagline">A síntese de 20 anos de expertise estratégica transformada em uma ferramenta de aplicação prática. Solução validada internacionalmente por founders e líderes de marketing durante a fase beta.</p>
+          
+          <ul class="produto-stats">
+            <li>✓ Next.js</li>
+            <li>✓ Estratégia & ROI</li>
+            <li>✓ Google Play Store</li>
+          </ul>
+          
+          <div class="produto-tags">
+            <span>Next.js</span> 
+            <span>Estratégia & ROI</span>
+            <span>Google Play Store</span>
+          </div>
+          
+          <div class="produto-actions">
+            <a href="#contato" class="btn btn-primary btn-magnetic">Conhecer Plataforma</a>
+            <a href="#portfolio" class="btn-link">Ver Demo</a>
+          </div>
+          
+          <div class="produto-footer">
+            <a href="#contato">Suporte</a> · <a href="#privacy">Privacidade</a>
+          </div>
+        </div>
+
+        <!-- ORCA - Coming Soon (2 cols x 1 row) -->
+        <div class="produto-card glass-card coming-soon card-animated fade-in-up">
+          <div class="produto-badge">Lançamento Q1 2026</div>
+          <picture>
+            <source srcset="/images/orca-thumb.webp" type="image/webp">
+            <img 
+              src="/images/orca-thumb.png" 
+              alt="ORCA - Sistema de orçamentos via WhatsApp" 
+              loading="lazy"
+              width="400"
+              height="300"
+              decoding="async"
+            >
+          </picture>
+          <h3>ORCA</h3>
+          <p class="produto-tagline">Orçamentos automatizados via WhatsApp com IA</p>
+          
+          <ul class="produto-stats">
+            <li>✓ WhatsApp API integrada</li>
+            <li>✓ Processamento por IA</li>
+            <li>✓ Conversão em 3 minutos</li>
+          </ul>
+          
+          <div class="produto-tags">
+            <span>WhatsApp API</span> 
+            <span>GPT-5.2</span>
+            <span>Webhooks</span>
+          </div>
+          
+          <div class="produto-actions">
+            <a href="#contato" class="btn btn-primary btn-magnetic">Lista de Espera</a>
+            <a href="#contato" class="btn-link">Early Access</a>
+          </div>
+          
+          <div class="produto-footer">
+            <a href="#contato">Suporte</a> · <a href="#privacy">Privacidade</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <!-- <section id="portfolio" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Cases de Sucesso</h2>
+      <p class="section-subtitle fade-in-up">
+        De educação infantil a vendas B2B. Produtos reais com resultados mensuráveis.
+      </p>
+      
+      <div class="grid grid-cols-2 gap-2xl stagger-grid">
+        <div class="card reveal-left">
+          <div class="card-image">
+            <img src="/images/capitao-banana.webp" alt="Capitão Banana App" loading="lazy">
+          </div>
+          <div class="badge" style="background: rgba(255, 193, 7, 0.2); color: #ffa000;">App Educativo iOS/Android</div>
+          <h3 class="card-title">🍌 Capitão Banana</h3>
+          <p class="card-description">
+            App educativo para crianças (3-7 anos) com foco em alimentação saudável. +2.000 downloads, nota 4.8★ nas lojas.
+          </p>
+          <p style="font-size: var(--text-sm); color: var(--color-gray-500); margin-top: var(--spacing-md);">
+            📱 React Native • 🎮 Gamificação • 🏆 Premiado MEC 2025
+          </p>
+          <a href="#contato" class="btn btn-secondary btn-magnetic" style="margin-top: var(--spacing-lg);">Solicitar Demo</a>
+        </div>
+        
+        <div class="card reveal-right">
+          <div class="card-image">
+            <img src="/images/playbook-thumb.webp" alt="Go-to-Market Playbook" loading="lazy">
+          </div>
+          <div class="badge" style="background: rgba(99, 102, 241, 0.2); color: #6366f1;">Plataforma Web</div>
+          <h3 class="card-title">📊 Go-to-Market Playbook</h3>
+          <p class="card-description">
+            Framework digital de estratégia de vendas para founders. Dashboard interativo com templates prontos e calculadoras de ROI.
+          </p>
+          <p style="font-size: var(--text-sm); color: var(--color-gray-500); margin-top: var(--spacing-md);">
+            💻 Next.js • 📈 Analytics • 🔒 Auth0
+          </p>
+          <a href="#contato" class="btn btn-secondary btn-magnetic" style="margin-top: var(--spacing-lg);">Conhecer Plataforma</a>
+        </div>
+        
+        <div class="card reveal-left">
+          <div class="card-image">
+            <img src="/images/orca-thumb.webp" alt="ORCA System" loading="lazy">
+          </div>
+          <div class="badge" style="background: rgba(0, 217, 255, 0.2); color: #00d9ff;">Lançamento Q1 2026</div>
+          <h3 class="card-title">🐋 ORCA</h3>
+          <p class="card-description">
+            Sistema de orçamentos via WhatsApp com IA. Automatize cotações, capture leads e converta em até 3 minutos por atendimento.
+          </p>
+          <p style="font-size: var(--text-sm); color: var(--color-gray-500); margin-top: var(--spacing-md);">
+            💬 WhatsApp API • 🤖 GPT-4 • ⚡ Webhooks
+          </p>
+          <a href="#contato" class="btn btn-secondary btn-magnetic" style="margin-top: var(--spacing-lg);">Lista de Espera</a>
+        </div>
+        
+        <div class="card reveal-right">
+          <div class="card-image" style="background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(236, 72, 153, 0.1) 100%); display: flex; align-items: center; justify-content: center; min-height: 300px;">
+            <div style="font-size: 96px;">🚀</div>
+          </div>
+          <div class="badge">Custom Development</div>
+          <h3 class="card-title">Seu Projeto Aqui</h3>
+          <p class="card-description">
+            Tem uma ideia de app ou produto digital? Trabalhamos com startups, PMEs e profissionais liberais de SP/Brasil.
+          </p>
+          <a href="#contato" class="btn btn-primary btn-magnetic" style="margin-top: var(--spacing-lg);">Agendar Reunião</a>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- About Section -->
+  <section id="sobre" class="section">
+    <div class="container">
+      <div class="about-header" style="text-align: center; margin-bottom: 48px;">
+        <h2 class="section-title fade-in-up" style="text-align: center;">De Ideias a Apps que Performam</h2>
+        <p class="lead fade-in-up" style="text-align: center; max-width: 800px; margin: 0 auto;">
+          Somos a <strong>ER Apps Studio</strong>: equipe independente da Região Amazônica 
+          especializada em criar soluções digitais para quem não tem tempo a perder 
+          com complexidade.
+        </p>
+      </div>
+      
+      <!-- Social Proof Cards -->
+      <div class="social-proof-grid fade-in-up" style="display: flex; justify-content: center; gap: var(--spacing-3xl); margin-bottom: var(--spacing-4xl); flex-wrap: wrap;">
+        <div class="proof-card glass-card" style="text-align: center; padding: var(--spacing-3xl); min-width: 200px;">
+          <div style="font-size: 3rem; margin-bottom: var(--spacing-md);">🚀</div>
+          <div class="counter" data-target="3" style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-cyan);">0</div>
+          <p style="color: var(--text-secondary); margin-top: var(--spacing-sm);">Produtos Lançados</p>
+        </div>
+        
+        <div class="proof-card glass-card" style="text-align: center; padding: var(--spacing-3xl); min-width: 200px;">
+          <div style="font-size: 3rem; margin-bottom: var(--spacing-md);">💯</div>
+          <div class="counter" data-target="3" style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-magenta);">0</div>
+          <p style="color: var(--text-secondary); margin-top: var(--spacing-sm);">Segmentos Dominados</p>
+        </div>
+        
+        <div class="proof-card glass-card" style="text-align: center; padding: var(--spacing-3xl); min-width: 200px;">
+          <div style="font-size: 3rem; margin-bottom: var(--spacing-md);">👥</div>
+          <div style="font-size: var(--text-3xl); font-weight: 700; color: var(--accent-yellow);"><span class="counter" data-target="5">0</span>K+</div>
+          <p style="color: var(--text-secondary); margin-top: var(--spacing-sm);">Usuários Ativos</p>
+        </div>
+      </div>
+      
+      <!-- Tripé de Valores -->
+      <div class="values-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--spacing-3xl);">
+        <div class="value-card glass-card glass-card-glow fade-in-up">
+          <div style="font-size: 3rem; margin-bottom: var(--spacing-lg);">⚡</div>
+          <h3 class="card-title">Velocidade sem sacrificar qualidade</h3>
+          <p class="card-description">
+            Do MVP ao lançamento em 30-45 dias. Metodologia ágil com entregas semanais e feedback contínuo.
+          </p>
+        </div>
+        
+        <div class="value-card glass-card glass-card-glow fade-in-up">
+          <div style="font-size: 3rem; margin-bottom: var(--spacing-lg);">🎯</div>
+          <h3 class="card-title">Independência que gera foco</h3>
+          <p class="card-description">
+            Estúdio independente = zero política corporativa. Focamos 100% em resolver seu problema, não em process buroc</p>
+        </div>
+        
+        <div class="value-card glass-card glass-card-glow fade-in-up">
+          <div style="font-size: 3rem; margin-bottom: var(--spacing-lg);">🇧🇷</div>
+          <h3 class="card-title">Brasil no DNA</h3>
+          <p class="card-description">
+            Entendemos o mercado brasileiro, suas particularidades e desafios. Soluções pensadas para funcionar aqui.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contato" class="section section-dark">
+    <div class="container">
+      <h2 class="section-title fade-in-up">Vamos Construir Algo Incrível?</h2>
+      <p class="section-subtitle fade-in-up">
+        Transforme sua ideia em produto digital. Resposta em até 24h úteis. São Paulo, Brasil.
+      </p>
+      
+      <!-- 2-Column Layout: Contact Channels + Calendly -->
+      <div class="contato-layout">
+        
+        <!-- Left Column: Contact Channels -->
+        <div class="contato-channels">
+          <h3 class="channels-title">Escolha Seu Canal</h3>
+          
+          <a href="mailto:hello@erappsstudio.com" class="channel-card">
+            <h4><span class="icon">💬</span> Geral & Parcerias</h4>
+            <p>hello@erappsstudio.com</p>
+          </a>
+          
+          <a href="mailto:contato@erappsstudio.com" class="channel-card">
+            <h4><span class="icon">📧</span> Suporte Técnico</h4>
+            <p>contato@erappsstudio.com</p>
+          </a>
+          
+          <a href="mailto:privacy@erappsstudio.com" class="channel-card">
+            <h4><span class="icon">🔒</span> Privacidade & Dados</h4>
+            <p>privacy@erappsstudio.com</p>
+          </a>
+          
+          <a href="https://wa.me/5511999999999?text=Olá!%20Vim%20pelo%20site%20do%20ER%20Apps%20Studio" target="_blank" rel="noopener" class="channel-card whatsapp">
+            <h4><span class="icon">📲</span> WhatsApp Direto</h4>
+            <p>Resposta em até 24h</p>
+          </a>
+        </div>
+
+        <!-- Right Column: Calendly Embed -->
+        <div class="contato-calendly">
+          <h3 class="calendly-title">📅 Agende Demo 30min</h3>
+          
+          <div class="calendly-wrapper">
+            <!-- Calendly Inline Widget -->
+            <div class="calendly-inline-widget" 
+                 data-url="https://calendly.com/erapps-studio/30min?background_color=050505&text_color=ffffff&primary_color=3b82f6" 
+                 style="min-width:320px;height:700px;border-radius:24px;overflow:hidden;background-color:#0A0A0A;">
+            </div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+            <style>
+              @media (max-width: 768px) {
+                .calendly-inline-widget {
+                  height: 600px;
+                }
+              }
+            </style>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-cta section" aria-labelledby="newsletter-title">
+    <div class="container">
+      <div class="newsletter-content fade-in-up">
+        <h3 id="newsletter-title">📬 Receba Dicas de Produto<br>(Sem Spam)</h3>
+        <p>Newsletter quinzenal com bastidores, growth hacks e acesso antecipado</p>
+        
+        <!-- Newsletter Form - Update action URL with your Beehiiv/Mailchimp ID -->
+        <form class="newsletter-form" action="https://app.beehiiv.com/subscribe/[YOUR_PUBLICATION_ID]" method="post" aria-label="Formulário de inscrição na newsletter">
+          <label for="newsletter-email" class="sr-only">Seu endereço de e-mail</label>
+          <input 
+            type="email" 
+            id="newsletter-email"
+            name="email" 
+            placeholder="seu@email.com" 
+            required
+            autocomplete="email"
+            aria-describedby="newsletter-disclaimer"
+          >
+          <input type="hidden" name="utm_source" value="website">
+          <input type="hidden" name="utm_medium" value="footer_form">
+          <button type="submit" class="btn btn-primary btn-magnetic">Inscrever →</button>
+        </form>
+        
+        <p class="disclaimer" id="newsletter-disclaimer">Cancele quando quiser. Zero spam, só conteúdo útil.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-title">ER Apps Studio</h4>
+          <p class="footer-copy">Estúdio independente da Região Amazônica criando apps que educam, aceleram negócios e simplificam o cotidiano.</p>
+          <div class="social-links" aria-label="Redes sociais ER Apps Studio">
+            <a href="https://www.linkedin.com/company/erappsstudio" target="_blank" rel="noreferrer" class="footer-social-link" aria-label="LinkedIn">
+              <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.98 3.5C4.98 2.12 3.86 1 2.48 1 1.1 1 0 2.12 0 3.5S1.12 6 2.5 6c1.38 0 2.48-1.12 2.48-2.5zM0 8.5h4.96V24H0zM8.24 8.5h4.76v2.34h.07c.66-1.25 2.27-2.56 4.67-2.56 4.99 0 5.92 3.28 5.92 7.55V24h-4.96v-7.19c0-1.71-.03-3.92-2.39-3.92-2.39 0-2.76 1.87-2.76 3.78V24H8.24z"/>
+              </svg>
+            </a>
+            <a href="https://instagram.com/erappsstudio" target="_blank" rel="noreferrer" class="footer-social-link" aria-label="Instagram">
+              <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M7 3h10a4 4 0 0 1 4 4v10a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4V7a4 4 0 0 1 4-4zm0 2a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2zm5 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm6.5-1a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+              </svg>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=5511999999999" target="_blank" rel="noreferrer" class="footer-social-link" aria-label="WhatsApp">
+              <svg class="footer-social-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.51 6.49A7.87 7.87 0 0 0 12 4c-4.97 0-9 4.03-9 9 0 1.8.5 3.48 1.42 4.95l-1.15 3.11 3.33-.88A8.95 8.95 0 0 0 12 22c4.97 0 9-4.03 9-9 0-1.51-.39-2.94-1.12-4.24zm-5.51 11.41c-1.8 0-3.56-.49-5.06-1.44l-.35-.2-2.23.58.6-2.17-.22-.36A6.71 6.71 0 0 1 5 13c0-3.86 3.14-7 7-7s7 3.14 7 7-3.14 7-7 7zm3.2-4.1c-.17-.08-1-.48-1.15-.54-.34-.14-.59-.08-.82.08-.18.13-.74.55-.9.66-.16.11-.29.11-.47.04-.17-.06-.7-.26-1.32-1.31-.49-.86-.81-1.91-.91-2.13-.08-.17 0-.26.06-.34.07-.07.16-.18.24-.27.08-.09.11-.15.17-.24.06-.08.03-.14-.02-.22-.06-.08-.82-1.97-1.12-2.7-.3-.7-.6-.6-.82-.61-.2-.01-.43-.01-.66-.01-.23 0-.6.09-.92.43-.32.34-1.22 1.19-1.22 2.9 0 1.71 1.25 3.37 1.42 3.62.16.27 2.46 3.88 5.97 5.21.83.36 1.48.29 2.03.18.62-.12 1.89-.77 2.16-1.52.27-.75.27-1.39.19-1.52-.08-.13-.34-.2-.71-.37z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="footer-title">Produtos</h5>
+          <ul class="footer-links">
+            <li><a class="footer-link transition-colors duration-200 hover:text-cyan-400" href="#produtos">Capitão Banana</a></li>
+            <li><a class="footer-link transition-colors duration-200 hover:text-cyan-400" href="#produtos">Go-To-Market<br>Playbook</a></li>
+            <li><a class="footer-link transition-colors duration-200 hover:text-cyan-400" href="#produtos">ORCA (em breve)</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5 class="footer-title">Empresa</h5>
+          <ul class="footer-links">
+            <li><a class="footer-link transition-colors duration-200 hover:text-cyan-400" href="#sobre">Sobre Nós</a></li>
+            <li><a class="footer-link transition-colors duration-200 hover:text-cyan-400" href="#portfolio">Portfolio</a></li>
+            <li><a class="footer-link transition-colors duration-200 hover:text-cyan-400" href="#contato">Contato</a></li>
+            <li><a class="footer-link transition-colors duration-200 hover:text-cyan-400" href="mailto:hello@erappsstudio.com">hello@erappsstudio.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom border-t border-gray-800 pt-8 mt-12">
+        <p class="text-sm text-gray-400 mb-4 md:mb-0">© 2026 ER Apps Studio. Todos os direitos reservados.</p>
+        <p class="text-sm text-gray-400 mb-4 md:mb-0">Feito com 💛 e café na Região Amazônica, Brasil.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Color System & Glassmorphism Demo - Developer Mode -->
+  <section class="demo-section" style="padding: var(--space-16) 0; display: none;" id="colorDemo">
+    <div class="container">
+      <div class="demo-header" style="text-align: center; margin-bottom: var(--space-12);">
+        <h2 style="color: var(--text-primary); margin-bottom: var(--space-4);">Sistema de Cores, Tipografia & Glassmorphism</h2>
+        <p class="lead" style="max-width: 700px; margin: 0 auto;">
+          Nova paleta dark theme com neon accents, tipografia fluida Inter + JetBrains Mono, e utilitários glassmorphism.
+        </p>
+      </div>
+
+      <!-- Typography Showcase -->
+      <div style="margin-bottom: var(--space-12);">
+        <h3 style="color: var(--text-primary); margin-bottom: var(--space-6); text-align: center;">Tipografia Responsiva</h3>
+        <div class="glass-card" style="padding: var(--space-8); margin-bottom: var(--space-6);">
+          <h1 style="margin-bottom: var(--space-4);">Heading 1 - Inter 700 (48-64px)</h1>
+          <h2 style="margin-bottom: var(--space-3);">Heading 2 - Inter 600 (36-48px)</h2>
+          <h3 style="margin-bottom: var(--space-3);">Heading 3 - Inter 600 (28-36px)</h3>
+          <h4 style="margin-bottom: var(--space-2);">Heading 4 - Inter 600 (22-28px)</h4>
+          <p class="lead">Lead text para introduções importantes. Font-size fluido com clamp() (18-22px)</p>
+          <p>Parágrafo regular com line-height 1.7 para melhor legibilidade. Escala de 16-18px responsiva.</p>
+          <p><code>console.log('Código inline com JetBrains Mono')</code></p>
+          <pre style="margin-top: var(--space-3);">// Bloco de código
+const theme = {
+  colors: ['#00d9ff', '#ff006e', '#ffbe0b', '#06ffa5'],
+  fonts: ['Inter', 'JetBrains Mono']
+};</pre>
+        </div>
+      </div>
+
+      <!-- Color Palette -->
+      <div style="margin-bottom: var(--space-12);">
+        <h3 style="color: var(--text-primary); margin-bottom: var(--space-6); text-align: center;">Paleta de Cores</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4);">
+          
+          <!-- Dark Base -->
+          <div style="text-align: center;">
+            <div style="background: var(--bg-primary); height: 80px; border-radius: 12px; margin-bottom: var(--space-2); border: 1px solid var(--glass-border);"></div>
+            <h4 style="color: var(--text-primary); font-size: 14px; margin-bottom: var(--space-1);">Primary</h4>
+            <code style="color: var(--text-muted); font-size: 12px;">#0a0a14</code>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="background: var(--bg-secondary); height: 80px; border-radius: 12px; margin-bottom: var(--space-2); border: 1px solid var(--glass-border);"></div>
+            <h4 style="color: var(--text-primary); font-size: 14px; margin-bottom: var(--space-1);">Secondary</h4>
+            <code style="color: var(--text-muted); font-size: 12px;">#14141f</code>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="background: var(--bg-tertiary); height: 80px; border-radius: 12px; margin-bottom: var(--space-2); border: 1px solid var(--glass-border);"></div>
+            <h4 style="color: var(--text-primary); font-size: 14px; margin-bottom: var(--space-1);">Tertiary</h4>
+            <code style="color: var(--text-muted); font-size: 12px;">#1f1f2e</code>
+          </div>
+
+          <!-- Neon Accents -->
+          <div style="text-align: center;">
+            <div style="background: var(--accent-cyan); height: 80px; border-radius: 12px; margin-bottom: var(--space-2);"></div>
+            <h4 style="color: var(--text-primary); font-size: 14px; margin-bottom: var(--space-1);">Cyan</h4>
+            <code style="color: var(--text-muted); font-size: 12px;">#00d9ff</code>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="background: var(--accent-magenta); height: 80px; border-radius: 12px; margin-bottom: var(--space-2);"></div>
+            <h4 style="color: var(--text-primary); font-size: 14px; margin-bottom: var(--space-1);">Magenta</h4>
+            <code style="color: var(--text-muted); font-size: 12px;">#ff006e</code>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="background: var(--accent-yellow); height: 80px; border-radius: 12px; margin-bottom: var(--space-2);"></div>
+            <h4 style="color: var(--text-primary); font-size: 14px; margin-bottom: var(--space-1);">Yellow</h4>
+            <code style="color: var(--text-muted); font-size: 12px;">#ffbe0b</code>
+          </div>
+
+          <div style="text-align: center;">
+            <div style="background: var(--accent-green); height: 80px; border-radius: 12px; margin-bottom: var(--space-2);"></div>
+            <h4 style="color: var(--text-primary); font-size: 14px; margin-bottom: var(--space-1);">Green</h4>
+            <code style="color: var(--text-muted); font-size: 12px;">#06ffa5</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- Buttons & CTAs Showcase -->
+      <div style="margin-bottom: var(--space-12);">
+        <h3 style="color: var(--text-primary); margin-bottom: var(--space-6); text-align: center;">Botões & CTAs Magnéticos</h3>
+        
+        <div class="glass-card" style="padding: var(--space-8); margin-bottom: var(--space-6);">
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-4); margin-bottom: var(--space-6);">
+            
+            <div style="text-align: center;">
+              <button class="btn btn-primary btn-magnetic">Primary CTA</button>
+              <p style="margin-top: var(--space-2); font-size: var(--text-sm); color: var(--text-muted);">Neon cyan + glow</p>
+            </div>
+            
+            <div style="text-align: center;">
+              <button class="btn btn-secondary btn-magnetic">Secondary CTA</button>
+              <p style="margin-top: var(--space-2); font-size: var(--text-sm); color: var(--text-muted);">Ghost cyan</p>
+            </div>
+            
+            <div style="text-align: center;">
+              <button class="btn btn-magenta btn-magnetic">Magenta CTA</button>
+              <p style="margin-top: var(--space-2); font-size: var(--text-sm); color: var(--text-muted);">Neon magenta</p>
+            </div>
+            
+            <div style="text-align: center;">
+              <button class="btn btn-green btn-magnetic">Green CTA</button>
+              <p style="margin-top: var(--space-2); font-size: var(--text-sm); color: var(--text-muted);">Neon verde</p>
+            </div>
+            
+            <div style="text-align: center;">
+              <button class="btn btn-yellow btn-magnetic">Yellow CTA</button>
+              <p style="margin-top: var(--space-2); font-size: var(--text-sm); color: var(--text-muted);">Neon amarelo</p>
+            </div>
+            
+            <div style="text-align: center;">
+              <button class="btn btn-outline btn-magnetic">Outline CTA</button>
+              <p style="margin-top: var(--space-2); font-size: var(--text-sm); color: var(--text-muted);">Ghost outline</p>
+            </div>
+          </div>
+          
+          <div style="text-align: center; padding-top: var(--space-4); border-top: 1px solid var(--glass-border);">
+            <p style="margin-bottom: var(--space-3); color: var(--text-secondary);">Links Animados:</p>
+            <div style="display: flex; justify-content: center; gap: var(--space-4); flex-wrap: wrap;">
+              <a href="#" class="link-animated">Link Padrão</a>
+              <a href="#" class="link-animated link-magenta">Link Magenta</a>
+              <a href="#" class="link-animated link-green">Link Verde</a>
+              <a href="#" class="link-animated link-icon">Link com Ícone</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Glassmorphism Examples -->
+      <div>
+        <h3 style="color: var(--text-primary); margin-bottom: var(--space-6); text-align: center;">Glassmorphism Utilities</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: var(--space-6);">
+          
+          <!-- Default Glass Card -->
+          <div class="glass-card" style="padding: var(--space-6);">
+            <h4 style="color: var(--text-primary); margin-bottom: var(--space-3);">.glass-card</h4>
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-3);">
+              Card padrão com backdrop-filter blur(12px) e saturate(180%). Perfeito para interfaces modernas.
+            </p>
+            <code style="color: var(--text-muted); font-size: 12px; background: rgba(0,0,0,0.2); padding: var(--space-1); border-radius: 4px;">
+              background: rgba(20,20,31,0.7)
+            </code>
+          </div>
+
+          <!-- Glass Card with Glow -->
+          <div class="glass-card glass-card-glow" style="padding: var(--space-6);">
+            <h4 style="color: var(--text-primary); margin-bottom: var(--space-3);">.glass-card-glow</h4>
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-3);">
+              Adiciona efeito glow cyan no hover. Ideal para cards interativos e call-to-actions importantes.
+            </p>
+            <code style="color: var(--text-muted); font-size: 12px; background: rgba(0,0,0,0.2); padding: var(--space-1); border-radius: 4px;">
+              hover: border-color: #00d9ff
+            </code>
+          </div>
+
+          <!-- Subtle Glass -->
+          <div class="glass-card-subtle" style="padding: var(--space-6);">
+            <h4 style="color: var(--text-primary); margin-bottom: var(--space-3);">.glass-card-subtle</h4>
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-3);">
+              Versão mais sutil com menor opacidade. Perfeito para elementos de background que não devem competir.
+            </p>
+            <code style="color: var(--text-muted); font-size: 12px; background: rgba(0,0,0,0.2); padding: var(--space-1); border-radius: 4px;">
+              background: rgba(20,20,31,0.4)
+            </code>
+          </div>
+
+          <!-- Strong Glass -->
+          <div class="glass-card-strong" style="padding: var(--space-6);">
+            <h4 style="color: var(--text-primary); margin-bottom: var(--space-3);">.glass-card-strong</h4>
+            <p style="color: var(--text-secondary); margin-bottom: var(--space-3);">
+              Versão com maior opacidade e blur mais intenso. Ideal para modais e elementos que precisam se destacar.
+            </p>
+            <code style="color: var(--text-muted); font-size: 12px; background: rgba(0,0,0,0.2); padding: var(--space-1); border-radius: 4px;">
+              background: rgba(20,20,31,0.9)
+            </code>
+          </div>
+
+          <!-- Accent Variants -->
+          <div class="glass-card glass-card-cyan" style="padding: var(--space-6);">
+            <h4 style="color: var(--accent-cyan); margin-bottom: var(--space-3);">.glass-card-cyan</h4>
+            <p style="color: var(--text-secondary);">Border cyan com glow sutil</p>
+          </div>
+
+          <div class="glass-card glass-card-magenta" style="padding: var(--space-6);">
+            <h4 style="color: var(--accent-magenta); margin-bottom: var(--space-3);">.glass-card-magenta</h4>
+            <p style="color: var(--text-secondary);">Border magenta com glow sutil</p>
+          </div>
+
+          <div class="glass-card glass-card-green" style="padding: var(--space-6);">
+            <h4 style="color: var(--accent-green); margin-bottom: var(--space-3);">.glass-card-green</h4>
+            <p style="color: var(--text-secondary);">Border verde com glow sutil</p>
+          </div>
+
+          <div class="glass-card glass-card-yellow" style="padding: var(--space-6);">
+            <h4 style="color: var(--accent-yellow); margin-bottom: var(--space-3);">.glass-card-yellow</h4>
+            <p style="color: var(--text-secondary);">Border amarelo com glow sutil</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demo Controls -->
+      <div style="text-align: center; margin-top: var(--space-12);">
+        <button onclick="document.getElementById('colorDemo').style.display='none'" 
+                style="background: var(--accent-cyan); color: var(--bg-primary); padding: var(--space-3) var(--space-6); border: none; border-radius: 12px; font-weight: 600; cursor: pointer;">
+          Ocultar Demo
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fixed Mobile CTA - Appears after 50% scroll -->
+  <div class="cta-fixed-mobile" id="ctaFloating">
+    <a href="#contato" class="btn-floating">
+      <span class="btn-floating-icon">💬</span>
+      <span>Fale Conosco</span>
+    </a>
+    <button class="btn-close" aria-label="Fechar" onclick="document.getElementById('ctaFloating').style.display='none'">×</button>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/dark-mode.js"></script>
+  <!-- Performance Module (load first for early optimization) -->
+  <script src="/js/performance.js"></script>
+  
+  <!-- Core Scripts -->
+  <script src="/js/dark-mode.js" defer></script>
+  <script src="/js/hero-3d.js" defer></script>
+  <script src="/js/navigation.js" defer></script>
+  <script src="/js/micro-interactions.js" defer></script>
+  <script src="/js/animations.js" defer></script>
+  <script src="/js/components.js" defer></script>
+  <script src="/js/forms.js" defer></script>
+  <script src="/js/main.js" defer></script>
+  
+  <!-- Calendly Widget Script (lazy loaded) -->
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  
+  <!-- Developer Color System Demo Utility -->
+  <script>
+    // Enable color demo with keyboard shortcut
+    document.addEventListener('keydown', function(e) {
+      // Ctrl/Cmd + Shift + C to toggle color demo
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key === 'C') {
+        e.preventDefault();
+        const demo = document.getElementById('colorDemo');
+        if (demo.style.display === 'none') {
+          demo.style.display = 'block';
+          demo.scrollIntoView({ behavior: 'smooth' });
+          console.log('🎨 Color System Demo activated! New dark theme with glassmorphism utilities.');
+        } else {
+          demo.style.display = 'none';
+        }
+      }
+    });
+    
+    // Add console message for developers
+    console.log('%c🎨 ER Apps Studio - Design System', 'color: #00d9ff; font-weight: bold; font-size: 16px;');
+    console.log('%cPress Ctrl/Cmd + Shift + C to view the design system demo', 'color: #ff006e; font-weight: bold;');
+    console.log('%cNew Features:', 'color: #06ffa5; font-weight: bold;');
+    console.log('• Dark theme: --bg-primary, --bg-secondary, --bg-tertiary');
+    console.log('• Neon accents: --accent-cyan, --accent-magenta, --accent-yellow, --accent-green');
+    console.log('• Typography: Inter + JetBrains Mono with fluid clamp() scaling');
+    console.log('• Glassmorphism: .glass-card, .glass-card-glow, .glass-card-subtle, .glass-card-strong');
+    console.log('• Spacing system: --space-1 (8px) to --space-16 (128px)');
+    console.log('• Typography utils: .text-xs to .text-4xl, .font-light to .font-bold');
+  </script>
+  
+</body>
+</html>

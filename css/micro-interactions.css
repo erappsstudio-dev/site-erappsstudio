@@ -1,0 +1,381 @@
+/* 
+ * MICRO-INTERAÇÕES PREDITIVAS
+ * Hover Parallax + Magnetic Buttons
+ * +40% tempo de página (Gnar/VeilSun data)
+ * Signature de estúdios premium
+ */
+
+/* Magnetic Button Base */
+.btn-magnetic {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  cursor: pointer;
+}
+
+.btn-magnetic:hover {
+  z-index: 10;
+}
+
+/* Smooth return animation */
+.btn-magnetic {
+  transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Magnetic effect on different button types */
+.btn-primary.btn-magnetic,
+.btn-secondary.btn-magnetic,
+.btn-primary-hero.btn-magnetic,
+.btn-secondary-hero.btn-magnetic {
+  transform-origin: center;
+}
+
+/* Enhanced hover state for magnetic buttons */
+.btn-magnetic:hover {
+  box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+}
+
+/* Magnetic cursor follower effect */
+.btn-magnetic::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(circle at center, rgba(99, 102, 241, 0.2), transparent 70%);
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.btn-magnetic:hover::before {
+  opacity: 1;
+}
+
+/* Bento Card Hover Parallax */
+.bento-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.bento-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Glass Card Hover Parallax */
+.glass-card.hover-parallax {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card.hover-parallax:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+}
+
+/* Card 3D Tilt Effect */
+.card-tilt {
+  transition: transform 0.2s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+}
+
+/* Smooth tilt animation controlled by JS */
+.card-tilt.tilting {
+  transition: transform 0.1s ease-out;
+}
+
+/* Inner content for parallax depth */
+.card-tilt-content {
+  transform: translateZ(20px);
+  transition: transform 0.2s ease-out;
+}
+
+/* Button Scale Pulse on Hover */
+.btn-pulse {
+  animation: none;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-pulse:hover {
+  animation: pulse-scale 1s ease-in-out infinite;
+}
+
+@keyframes pulse-scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* Ripple Effect on Click */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-ripple:active::after {
+  width: 300px;
+  height: 300px;
+}
+
+/* Hover Lift with Shadow */
+.hover-lift-3d {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.hover-lift-3d::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  border-radius: inherit;
+  opacity: 0;
+  z-index: -1;
+  filter: blur(20px);
+  transition: opacity 0.3s;
+}
+
+.hover-lift-3d:hover {
+  transform: translateY(-12px);
+}
+
+.hover-lift-3d:hover::after {
+  opacity: 0.4;
+}
+
+/* Cursor Follow Spotlight */
+.spotlight-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-card::before {
+  content: '';
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+  transform: translate(-50%, -50%);
+}
+
+.spotlight-card:hover::before {
+  opacity: 1;
+}
+
+/* Image Zoom on Hover */
+.image-zoom {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.image-zoom img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+.image-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* Text Gradient Shift on Hover */
+.text-gradient-shift {
+  background: linear-gradient(90deg, 
+    var(--color-primary), 
+    var(--color-secondary), 
+    var(--color-accent),
+    var(--color-primary)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: background-position 0.5s ease;
+}
+
+.text-gradient-shift:hover {
+  background-position: 100% center;
+}
+
+/* Link Underline Expand */
+.link-expand {
+  position: relative;
+  display: inline-block;
+}
+
+.link-expand::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: currentColor;
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link-expand:hover::after {
+  width: 100%;
+}
+
+/* Icon Rotate on Hover */
+.icon-rotate {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.icon-rotate:hover {
+  transform: rotate(15deg) scale(1.1);
+}
+
+/* Stagger Hover Children */
+.stagger-hover > * {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stagger-hover:hover > *:nth-child(1) { transform: translateY(-4px); transition-delay: 0s; }
+.stagger-hover:hover > *:nth-child(2) { transform: translateY(-4px); transition-delay: 0.05s; }
+.stagger-hover:hover > *:nth-child(3) { transform: translateY(-4px); transition-delay: 0.1s; }
+.stagger-hover:hover > *:nth-child(4) { transform: translateY(-4px); transition-delay: 0.15s; }
+
+/* Border Draw Animation */
+.border-draw {
+  position: relative;
+}
+
+.border-draw::before,
+.border-draw::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.border-draw::before {
+  top: 0;
+  left: 0;
+}
+
+.border-draw::after {
+  bottom: 0;
+  right: 0;
+}
+
+.border-draw:hover::before,
+.border-draw:hover::after {
+  width: 100%;
+}
+
+/* Glow Pulse on Hover */
+.glow-pulse {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glow-pulse:hover {
+  box-shadow: 
+    0 0 20px rgba(99, 102, 241, 0.4),
+    0 0 40px rgba(99, 102, 241, 0.2),
+    0 0 60px rgba(99, 102, 241, 0.1);
+  animation: glow-pulse-animation 2s ease-in-out infinite;
+}
+
+@keyframes glow-pulse-animation {
+  0%, 100% {
+    box-shadow: 
+      0 0 20px rgba(99, 102, 241, 0.4),
+      0 0 40px rgba(99, 102, 241, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 0 30px rgba(99, 102, 241, 0.6),
+      0 0 60px rgba(99, 102, 241, 0.4),
+      0 0 80px rgba(99, 102, 241, 0.2);
+  }
+}
+
+/* Skew on Hover */
+.skew-hover {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skew-hover:hover {
+  transform: skewY(-2deg) translateY(-4px);
+}
+
+/* Responsive - Disable complex effects on mobile for performance */
+@media (max-width: 768px) {
+  .btn-magnetic,
+  .card-tilt,
+  .hover-lift-3d,
+  .spotlight-card::before {
+    transform: none !important;
+  }
+  
+  .btn-magnetic:hover,
+  .bento-card:hover,
+  .glass-card.hover-parallax:hover {
+    transform: translateY(-4px) scale(1.01);
+  }
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .btn-magnetic,
+  .bento-card,
+  .glass-card.hover-parallax,
+  .card-tilt,
+  .hover-lift-3d,
+  .image-zoom img,
+  .text-gradient-shift,
+  .link-expand::after,
+  .icon-rotate,
+  .stagger-hover > *,
+  .border-draw::before,
+  .border-draw::after,
+  .glow-pulse,
+  .skew-hover {
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Performance optimizations */
+.btn-magnetic,
+.bento-card,
+.glass-card.hover-parallax,
+.card-tilt,
+.image-zoom img {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}

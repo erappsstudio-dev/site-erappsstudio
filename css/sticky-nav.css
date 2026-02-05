@@ -1,0 +1,459 @@
+/* 
+ * STICKY NAV + CTA PERSISTENTE
+ * Mobile-Critical - 60% tráfego BR mobile
+ * +23% conversão com CTA sempre acessível (Stripe/Linear pattern)
+ */
+
+/* Sticky Navigation Base */
+.nav-sticky {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: rgba(10, 10, 20, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, background;
+}
+
+/* Scrolled State - Activated by JS */
+.nav-sticky.scrolled {
+  padding: 12px 0;
+  background: rgba(10, 10, 20, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Nav without backdrop-filter initially (performance) */
+.nav-sticky:not(.scrolled) {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  background: transparent;
+}
+
+/* Navbar Container */
+.nav-sticky .nav-container {
+  transition: padding 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Nav Content Layout */
+.nav-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-md) 0;
+}
+
+/* Logo Styles */
+.logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* Nav CTA Button */
+.btn-nav-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--bg-primary);
+  background: linear-gradient(135deg, var(--accent-cyan) 0%, var(--accent-magenta) 100%);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 217, 255, 0.3);
+}
+
+.btn-nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 217, 255, 0.4);
+}
+
+/* Logo Transition */
+.nav-sticky .nav-brand {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-sticky.scrolled .nav-brand {
+  transform: scale(0.9);
+}
+
+/* Nav Links Transition */
+.nav-sticky .nav-menu a {
+  position: relative;
+  padding: var(--spacing-sm) 0;
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* CTA Button in Nav */
+.nav-sticky .nav-cta {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  color: var(--color-white);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+}
+
+.nav-sticky .nav-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* Fixed Mobile CTA - Critical for Mobile Conversion */
+.cta-fixed-mobile {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: none;
+  opacity: 0;
+  transform: translateY(100px) scale(0.8);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); /* Bounce effect */
+}
+
+/* Visible State - Controlled by JS */
+.cta-fixed-mobile.visible {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Mobile CTA Button */
+.cta-fixed-mobile .btn-floating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  border-radius: var(--radius-full);
+  box-shadow: 
+    0 8px 24px rgba(99, 102, 241, 0.4),
+    0 0 0 0 rgba(99, 102, 241, 0.4);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  text-decoration: none;
+  white-space: nowrap;
+  animation: pulse-shadow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-shadow {
+  0%, 100% {
+    box-shadow: 
+      0 8px 24px rgba(99, 102, 241, 0.4),
+      0 0 0 0 rgba(99, 102, 241, 0.4);
+  }
+  50% {
+    box-shadow: 
+      0 8px 24px rgba(99, 102, 241, 0.4),
+      0 0 0 8px rgba(99, 102, 241, 0);
+  }
+}
+
+.cta-fixed-mobile .btn-floating:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(99, 102, 241, 0.6);
+}
+
+.cta-fixed-mobile .btn-floating:active {
+  transform: translateY(-2px);
+}
+
+/* Icon in floating button */
+.btn-floating-icon {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Close button for CTA */
+.cta-fixed-mobile .btn-close {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  width: 24px;
+  height: 24px;
+  background: var(--color-gray-800);
+  color: var(--color-white);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s;
+  opacity: 0.8;
+}
+
+.cta-fixed-mobile .btn-close:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Floating CTA Variants */
+.cta-fixed-mobile.left {
+  right: auto;
+  left: 20px;
+}
+
+.cta-fixed-mobile.bottom-center {
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+}
+
+.cta-fixed-mobile.bottom-center.visible {
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Mini variant for less intrusive */
+.cta-fixed-mobile.mini .btn-floating {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;
+}
+
+.cta-fixed-mobile.mini .btn-floating span {
+  display: none;
+}
+
+/* Progress indicator on nav (optional) */
+.nav-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.1s ease-out;
+}
+
+/* Hide nav on scroll down, show on scroll up */
+.nav-sticky.nav-hidden {
+  transform: translateY(-100%);
+}
+
+.nav-sticky.nav-visible {
+  transform: translateY(0);
+}
+
+/* Mobile Menu Toggle */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 3px;
+}
+
+.mobile-menu-toggle span {
+  width: 20px;
+  height: 2px;
+  background: var(--color-white);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.mobile-menu-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.mobile-menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.mobile-menu-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu */
+.nav-menu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-xl);
+}
+
+.nav-menu a {
+  color: var(--color-white);
+  text-decoration: none;
+  font-weight: var(--font-weight-medium);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  padding: var(--spacing-xs) 0;
+  position: relative;
+}
+
+.nav-menu a:hover {
+  color: var(--color-primary);
+}
+
+.nav-menu a.active {
+  color: var(--color-primary);
+}
+
+/* Mobile Menu Mobile Styles */
+@media (max-width: 768px) {
+  .mobile-menu-toggle {
+    display: flex;
+  }
+
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 100vh;
+    width: 280px;
+    background: rgba(10, 10, 20, 0.95);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-xl);
+    transition: right 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+  }
+
+  .nav-menu.open {
+    right: 0;
+  }
+
+  .nav-menu a {
+    font-size: var(--font-size-lg);
+    padding: var(--spacing-md) 0;
+  }
+
+  /* Hide desktop CTA in mobile menu */
+  .nav-cta {
+    display: none !important;
+  }
+}
+
+/* Mobile Specific */
+@media (max-width: 768px) {
+  .nav-sticky.scrolled {
+    padding: 8px 0;
+  }
+
+  .nav-sticky .nav-container {
+    padding: var(--spacing-md) var(--container-padding);
+  }
+
+  /* Show mobile CTA only on mobile */
+  .cta-fixed-mobile {
+    display: flex;
+  }
+
+  /* Adjust floating button for mobile */
+  .cta-fixed-mobile {
+    bottom: 16px;
+    right: 16px;
+  }
+
+  .cta-fixed-mobile .btn-floating {
+    padding: var(--spacing-md) var(--spacing-lg);
+    font-size: var(--font-size-sm);
+  }
+
+  /* Hide desktop nav CTA on small screens */
+  .nav-sticky .nav-cta {
+    display: none;
+  }
+}
+
+/* Desktop - Hide floating CTA */
+@media (min-width: 769px) {
+  .cta-fixed-mobile {
+    display: none !important;
+  }
+}
+
+/* Tablet specific adjustments */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .nav-sticky .nav-cta {
+    padding: var(--spacing-xs) var(--spacing-md);
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Safe area for notch devices */
+@supports (padding: max(0px)) {
+  .nav-sticky {
+    padding-left: max(0px, env(safe-area-inset-left));
+    padding-right: max(0px, env(safe-area-inset-right));
+  }
+
+  .cta-fixed-mobile {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: max(20px, env(safe-area-inset-right));
+  }
+}
+
+/* Performance optimizations */
+.nav-sticky,
+.cta-fixed-mobile {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Reduce animations on low-end devices */
+@media (prefers-reduced-motion: reduce) {
+  .nav-sticky,
+  .nav-sticky *,
+  .cta-fixed-mobile,
+  .cta-fixed-mobile * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .nav-sticky.scrolled {
+    background: rgba(15, 23, 42, 0.95);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* Accessibility - Focus states */
+.nav-sticky .nav-menu a:focus-visible,
+.cta-fixed-mobile .btn-floating:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+}
+
+/* Print - hide fixed elements */
+@media print {
+  .nav-sticky,
+  .cta-fixed-mobile {
+    display: none !important;
+  }
+}

@@ -1,0 +1,26 @@
+# ER Apps Studio - Cloudflare Pages Redirects
+# URL rewrites and redirects configuration
+
+# Homepage variations
+/home      /    301
+/index     /    301
+
+# Product shortcuts
+/banana    /#produtos    302
+/playbook  /#produtos    302
+/orca      /#produtos    302
+
+# Contact shortcuts
+/demo      /#contato     302
+/contact   /#contato     302
+/contato   /#contato     302
+
+# Portfolio/Cases
+/cases     /#portfolio   302
+/projetos  /#portfolio   302
+
+# About
+/sobre-nos /#sobre       302
+
+# 404 fallback
+/*         /index.html   200
