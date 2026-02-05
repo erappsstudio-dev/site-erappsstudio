@@ -1,9 +1,3 @@
 User-agent: *
 Allow: /
-
-# Disallow admin or private areas if any
-# Disallow: /admin/
-# Disallow: /private/
-
-# Sitemap location
 Sitemap: https://erappsstudio.com/sitemap.xml
