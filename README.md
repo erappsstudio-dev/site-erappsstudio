@@ -96,6 +96,18 @@ git commit -m "Initial commit"
 git push origin main
 # Conecte no dashboard Cloudflare
 ```
+1. Preparar os arquivos
+Bash
+
+git add .
+2. Salvar com uma mensagem explicativa
+Bash
+
+git commit -m "Altera botao solicitar demo para baixar app"
+3. Enviar para a nuvem (Publicar)
+Bash
+
+git push
 
 ---
 
